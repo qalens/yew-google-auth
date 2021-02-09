@@ -1,17 +1,22 @@
 use yew::prelude::*;
-
-pub struct Button;
+use wasm_bindgen::closure::Closure;
+pub struct Button{
+    pub props:ButtonProps
+}
+#[derive(Clone,Properties)]
+pub struct ButtonProps{
+    pub client_id:String,
+    pub on_login:Callback<String>
+}
 impl Component for Button {
     type Message = ();
-    type Properties = ();
+    type Properties = ButtonProps;
 
-    fn create(props: Self::Properties, link: ComponentLink<Self>) -> Self {
-        Self{
-
-        }
+    fn create(props: Self::Properties, _link: ComponentLink<Self>) -> Self {
+        Self{ props}
     }
 
-    fn update(&mut self, msg: Self::Message) -> bool {
+    fn update(&mut self, _msg: Self::Message) -> bool {
         false
     }
 
@@ -21,9 +26,18 @@ impl Component for Button {
 
     fn view(&self) -> Html {
         html! {
-            <div>
-                {"This is component example"}
-            </div>
-        }
+                <div>
+                    <div id="login-with-google">
+                      <span>{"Sign In With Google"}</span>
+                    </div>
+                </div>
+            }
+    }
+
+    fn rendered(&mut self, first_render: bool) {
+        let callback = self.props.on_login.clone();
+        crate::scripts::render_with_callback(self.props.client_id.clone(),Closure::once_into_js( move |token:String|{
+            callback.emit(token);
+        }));
     }
 }

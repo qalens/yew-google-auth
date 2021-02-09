@@ -12,3 +12,4 @@ categories = ["wasm", "web-programming", "rust-patterns"]
 
 [dependencies]
 yew = { git = "https://github.com/yewstack/yew.git" }
+wasm-bindgen = "0.2.70"
