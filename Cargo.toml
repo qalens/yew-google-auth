@@ -1,0 +1,14 @@
+[package]
+name = "yew-google-auth"
+version = "0.1.0"
+authors = ["Atmaram Naik <naik_atmaram@yahoo.com>"]
+edition = "2018"
+license = "MIT"
+repository = "https://github.com/qalens/yew-google-auth"
+readme = "README.md"
+description = "Ergonomic Google Auth Component Library for Yew"
+keywords = ["yew", "google", "auth", "social", "login"]
+categories = ["wasm", "web-programming", "rust-patterns"]
+
+[dependencies]
+yew = { git = "https://github.com/yewstack/yew.git" }
