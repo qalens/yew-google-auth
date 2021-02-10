@@ -393,6 +393,8 @@ dependencies = [
 name = "yew-google-auth"
 version = "0.1.0"
 dependencies = [
+ "serde",
+ "serde_json",
  "wasm-bindgen",
  "yew",
 ]
