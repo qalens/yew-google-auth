@@ -14,8 +14,13 @@ pub struct AuthResponse{
 pub struct Button{
     pub props:ButtonProps
 }
+fn default_caption()->String{
+    format!("Login With Google")
+}
 #[derive(Clone,Properties)]
 pub struct ButtonProps{
+    #[props(default = "default_caption")]
+    pub caption:String,
     pub client_id:String,
     pub on_login:Callback<AuthResponse>
 }
