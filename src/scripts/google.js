@@ -12,7 +12,6 @@ export function render_with_callback(clientId,callback) {
 };
 
 function attachSignin(element,callback) {
-    console.log(element.id);
     auth2.attachClickHandler(element, {},
         function(googleUser) {
             callback(googleUser.getAuthResponse(true))
