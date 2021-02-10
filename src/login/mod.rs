@@ -43,7 +43,7 @@ impl Component for Button {
     fn view(&self) -> Html {
         html! {
                 <div>
-                    <div id="login-with-google" style="border:1px solid black;cursor:pointer; width: max-content;">
+                    <div id="login-with-google">
                       {&self.props.caption}
                     </div>
                 </div>
