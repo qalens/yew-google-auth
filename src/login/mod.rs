@@ -19,7 +19,7 @@ pub struct Button{
 #[derive(Clone,Properties)]
 pub struct ButtonProps{
     pub client_id:String,
-    pub on_login:Callback<String>
+    pub on_login:Callback<AuthResponse>
 }
 impl Component for Button {
     type Message = ();
@@ -49,8 +49,8 @@ impl Component for Button {
 
     fn rendered(&mut self, first_render: bool) {
         let callback = self.props.on_login.clone();
-        crate::scripts::render_with_callback(self.props.client_id.clone(),Closure::once_into_js( move |token:String|{
-            callback.emit(token);
+        crate::scripts::render_with_callback(self.props.client_id.clone(),Closure::once_into_js( move |resp:AuthResponse|{
+            callback.emit(resp);
         }));
     }
 }
