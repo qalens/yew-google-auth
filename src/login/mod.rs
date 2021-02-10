@@ -2,7 +2,7 @@ use yew::prelude::*;
 use wasm_bindgen::closure::Closure;
 use wasm_bindgen::prelude::*;
 use serde::{Serialize,Deserialize};
-#[derive(Clone,Serialize,Deserialize)]
+#[derive(Clone,Serialize,Deserialize,Debug)]
 pub struct AuthResponse{
     access_token:String,
     id_token:String,
