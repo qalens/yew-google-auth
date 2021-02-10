@@ -4,12 +4,12 @@ use wasm_bindgen::prelude::*;
 use serde::{Serialize,Deserialize};
 #[derive(Clone,Serialize,Deserialize,Debug)]
 pub struct AuthResponse{
-    access_token:String,
-    id_token:String,
-    login_hint:String,
-    expires_in:u64,
-    first_issued_at:u64,
-    expires_at:u64
+    pub access_token:String,
+    pub id_token:String,
+    pub login_hint:String,
+    pub expires_in:u64,
+    pub first_issued_at:u64,
+    pub expires_at:u64
 }
 pub struct Button{
     pub props:ButtonProps
