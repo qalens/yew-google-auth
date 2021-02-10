@@ -18,8 +18,8 @@ function attachSignin(element,callback) {
     auth2.attachClickHandler(element, {},
         function(googleUser) {
             alert("Logged In for user "+googleUser.getBasicProfile().getName())
-            console.log(googleUser.getAuthResponse());
-            callback(googleUser.getAuthResponse())
+            console.log(googleUser.getAuthResponse(true));
+            callback(googleUser.getAuthResponse(true))
         }, function(error) {
             alert(JSON.stringify(error, undefined, 2));
         });

@@ -4,10 +4,9 @@ use wasm_bindgen::prelude::*;
 use serde::{Serialize,Deserialize};
 #[derive(Clone,Serialize,Deserialize,Debug)]
 pub struct AuthResponse{
-    access_token:String,
+    access_token:Option<String>,
     id_token:String,
     login_hint:String,
-    scope:String,
     expires_in:u64,
     first_issued_at:u64,
     expires_at:u64
